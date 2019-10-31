@@ -1,5 +1,5 @@
 const m = 1;
-const n = 20;
+const n = 50;
 let result = 0;
 
 for (let i = m; i <= n; i++) {
@@ -10,7 +10,7 @@ for (let i = m; i <= n; i++) {
     } else if (i % 4 === 0) {
         result *= i;
     }
-    if (!(i % 5)) {
+    if (i % 5 === 0) {
         console.log(i);
     }
 }
