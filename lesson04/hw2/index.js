@@ -6,14 +6,18 @@ let result = 0;
 for (let i = m; i <= n; i++) {
     if (!(i % 5)) {
         console.log(i);
-    } else if (!(i % 2) && (i % 4)) {
+        continue;
+    }
+    if (!(i % 2) && (i % 4)) {
         result += i;
-    } else if (!(i % 3)) {
+    }
+    if (!(i % 3)) {
         result -= i;
-    } else if (!(i % 4)) {
+    }
+    if (!(i % 4)) {
         result *= i;
     }
 }
 
-console.log(result);
+// console.log(result);
 
