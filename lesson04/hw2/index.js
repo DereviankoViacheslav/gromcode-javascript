@@ -1,6 +1,5 @@
 const m = 1;
 const n = 50;
-// let tmp = 0;
 let result = 0;
 
 for (let i = m; i <= n; i++) {
@@ -15,5 +14,3 @@ for (let i = m; i <= n; i++) {
         console.log(i);
     }
 }
-
-// console.log(result);
