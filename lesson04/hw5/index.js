@@ -5,8 +5,6 @@ for (let i = 0; i <= 1000; i++) {
 }
 
 const rest = sum % 1234;
-const divisionResult = sum - rest;
+const divisionResult = (sum - rest) / 1234;
 
-let isBigger = divisionResult > rest;
-
-console.log(isBigger);
+console.log(divisionResult > rest);
