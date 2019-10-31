@@ -5,14 +5,14 @@ for (let i = 0; i < 1001; i++) {
     if (i % 2 !== 0) {
         console.log('Found');
         sumOddNumbers += i;
-        if ((sumOddNumbers * 5) > 5000) {
-            console.log('Bigger');
-        } else {
-            console.log('Smaller or equal');
-        }
     }
 }
 
+if ((sumOddNumbers * 5) > 5000) {
+    console.log('Bigger');
+} else {
+    console.log('Smaller or equal');
+}
 
 /**
  * На промежутке от 0 до 1000 включительно, для каждого нечетного числа выводите в консоль слово Found. Найдите сумму
