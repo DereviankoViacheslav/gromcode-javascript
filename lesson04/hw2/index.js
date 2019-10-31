@@ -9,7 +9,8 @@ for (let i = m; i <= n; i++) {
     } else if (i % 3 === 0) {
         // console.log(i);
         result -= i;
-    } else if (i % 4 === 0) {
+    }
+    if (i % 4 === 0) {
         // console.log(i);
         result *= i;
     }
