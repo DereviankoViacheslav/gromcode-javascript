@@ -1,5 +1,7 @@
 function reveseArray(array) {
-    if (!Array.isArray(array)) return null;
+    if (!Array.isArray(array)) {
+        return null;
+    }
 
     const result = [];
 
@@ -9,5 +11,3 @@ function reveseArray(array) {
 
     return result;
 }
-
-// console.log(reveseArray([1, 2, 3, 4, 5]));

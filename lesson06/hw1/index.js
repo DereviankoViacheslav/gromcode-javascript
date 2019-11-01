@@ -1,5 +1,7 @@
 function squareElements(array) {
-    if (!Array.isArray(array)) return null;
+    if (!Array.isArray(array)) {
+        return null;
+    }
 
     const result = [];
 
