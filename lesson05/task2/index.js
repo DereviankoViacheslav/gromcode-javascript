@@ -1,5 +1,5 @@
 
-function sayHi (name = 'anonymous') {
+function sayHi (name) {
     console.log('Hi, ' + name);
     
 }

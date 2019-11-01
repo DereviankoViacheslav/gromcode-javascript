@@ -1,4 +1,4 @@
 
-function sum (firstNum = 0, secondNum = 0) {
+function sum (firstNum, secondNum) {
     return firstNum + secondNum;
 }

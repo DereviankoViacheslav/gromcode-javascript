@@ -1,4 +1,4 @@
-function getSum(startNum = 0, endNum = 0) {
+function getSum(startNum, endNum) {
     let result = 0;
     for (let i = startNum; i <= endNum; i++) {
         if (i % 2 === 0) result += i;

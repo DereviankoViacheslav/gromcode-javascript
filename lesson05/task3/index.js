@@ -1,4 +1,4 @@
-function getEvenOdd(num = 0) {
+function getEvenOdd(num) {
     if (num % 2 === 0) {
         return 'even';
     } else {
