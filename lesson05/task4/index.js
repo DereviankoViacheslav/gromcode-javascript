@@ -1,1 +1,1 @@
-console.log('Hello, world!');
+const square = num => num * num;
