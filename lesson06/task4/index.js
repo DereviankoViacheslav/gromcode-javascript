@@ -1,1 +1,4 @@
-console.log('Hello, world!');
+function swap(array) {
+    const [first, ...rest] = array;
+    return [...rest, first];
+}
