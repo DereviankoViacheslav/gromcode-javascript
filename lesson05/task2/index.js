@@ -1,1 +1,5 @@
-console.log('Hello, world!');
+
+function sayHi (name = 'anonymous') {
+    console.log('Hi, ' + name);
+    
+}
