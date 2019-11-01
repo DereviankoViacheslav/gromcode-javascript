@@ -3,11 +3,9 @@ function squareElements(array) {
 
     const result = [];
 
-    for (let item of array) {
+    for (const item of array) {
         result.push(item * item);
     }
 
     return result;
 }
-
-// console.log(squareElements([3, 5, 6, 8]));
