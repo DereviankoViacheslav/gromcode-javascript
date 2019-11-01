@@ -8,3 +8,5 @@ function reveseArray(array) {
     }
     return result;
 }
+
+console.log(reveseArray([1, 2, 3, 4, 5]));
