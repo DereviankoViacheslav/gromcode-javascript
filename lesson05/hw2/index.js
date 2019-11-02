@@ -1,15 +1,14 @@
 function getPrimes(num) {
-    if (num > 0) console.log(1);
-    for (let i = 2; i <= num; i++) {
-        let isPrime = true;
-        for (let j = 2; j < i; j++) {
-            if (i % j === 0) {
-                isPrime = false;
-                break;
-            }
-        }
-        if (isPrime) console.log(i);
+    for (let i = 1; i <= num; i++) {
+        if (isPrime(i)) console.log(i);
     }
+}
+
+function isPrime(num) {
+    for (let j = 2; j < num; j++) {
+        if (num % j === 0) return false;
+    }
+    return true;
 }
 
 getPrimes(100);
