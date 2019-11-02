@@ -5,10 +5,10 @@ console.log(withdraw(clients, balances, 2, 50));
 
 function withdraw(clients, balances, client, amount) {
 
-    if (balances[client] < amount) {
-        return -1;
-    } else {
+    if (balances[client] > amount) {
         balances[client] -= amount;
         return balances[client];
     }
+    
+    return -1;
 }
