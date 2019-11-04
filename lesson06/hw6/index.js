@@ -3,13 +3,16 @@ const balances = [100, 200, 300, 400, 500, 600, 700];
 
 function withdraw(clients, balances, client, amount) {
     
-    if (balances[client] > amount) {
-        balances[client] -= amount;
-        return balances[client];
+    for (let i = 0; i < clients.length; i++) {
+        if (clients[i] !== client) continue;
+        if (balances[i] > amount) {
+            balances[i] -= amount;
+            return balances[i];
+        }
     }
     
     return -1;
 }
 
-// console.log(withdraw(clients, balances, 2, 550));
-// console.log(withdraw(clients, balances, 2, 50));
+// console.log(withdraw(clients, balances, 'Jeck2', 550));
+// console.log(withdraw(clients, balances, 'Jeck2', 50));
