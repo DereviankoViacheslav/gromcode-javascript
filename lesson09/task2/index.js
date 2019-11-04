@@ -1,1 +1,1 @@
-console.log('Hello, world!');
+const copyObj = obj => resultObj = { ...obj };
