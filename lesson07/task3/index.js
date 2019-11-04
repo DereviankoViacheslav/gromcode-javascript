@@ -1,6 +1,3 @@
-
-
-
-const array = [2, 5, 9, 8, 7, 4, 5, 6, 8];
-console.log(sortDesc(array));
-console.log(array);
+const flatArray = array => array.reduce((acc, elem) => {
+    return acc.concat(elem);
+}, []);
