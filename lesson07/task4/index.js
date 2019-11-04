@@ -1,6 +1,4 @@
-
-
-
-const array = [2, 5, [9, 8, 7, 4], 5, 6, 8];
-console.log(flatArray(array));
-console.log(array);
+const getMessagesForBestStudents = (allStudents, fialedStudents) => {
+    return allStudents.filter(name => !fialedStudents.includes(name))
+    .map(name => 'Good job, ' + name);
+}
