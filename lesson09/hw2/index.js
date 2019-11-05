@@ -1,6 +1,6 @@
 const getPeople = obj => Object.values(obj)
     .map(elem => elem.map(elem => elem.name))
-    .flat();
+    .reduce((acc, elem) => acc.concat(elem), []);
 
 // const rooms = {
 //     room1: [
