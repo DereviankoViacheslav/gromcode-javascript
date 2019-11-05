@@ -1,5 +1,5 @@
-const getPeople = obj => Object.entries(obj)
-    .map(elem => elem[1].map(elem => elem.name))
+const getPeople = obj => Object.values(obj)
+    .map(elem => elem.map(elem => elem.name))
     .flat();
 
 // const rooms = {
