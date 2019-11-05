@@ -1,8 +1,9 @@
 const getCustomersList = obj => {
-    for (const key in obj) {
-        obj[key]['id'] = key;
+    const resultObj = { ...obj };
+    for (const key in resultObj) {
+        resultObj[key]['id'] = key;
     }
-    return Object.values(obj).sort((elem1, elem2) => elem1.age - elem2.age);
+    return Object.values(resultObj).sort((elem1, elem2) => elem1.age - elem2.age);
 }
 
 // const customers = {
