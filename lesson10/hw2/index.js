@@ -1,6 +1,9 @@
 const getRandomNumbers = (arrayLength, from, to) => {
-    if (((Math.trunc(from) === Math.trunc(to)) && (from > 0 && to > 0 || from < 0 && to < 0)) ||
-        from > to) return null;
+    const isWrongRange = to < from;
+    const noNumbersBetween = (to - from < 1) && Math.ceil(to) === Math.ceil(from);
+
+    if (isWrongRange || noNumbersBetween) return null;
+
     return Array(arrayLength)
         .fill()
         .map(el => Math.trunc((Math.random() * (to - from) + from)));
