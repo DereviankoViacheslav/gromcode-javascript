@@ -1,4 +1,5 @@
-const sortContacts = (contactsArray, isAsc) => {
+const sortContacts = (contactsArray, isAsc = true) => {
+    if (!Array.isArray(contactsArray)) return null;
     return contactsArray.sort((a, b) => {
         if (isAsc) {
             return a.name.localeCompare(b.name);
