@@ -16,7 +16,7 @@ it('should get zero', () => {
 });
 
 it('should get zero', () => {
-    const result = findDivCount(1, 1, 1);
+    const result = findDivCount(1, 5, 1);
     console.log(result);
 
     expect(result).toEqual(0);
