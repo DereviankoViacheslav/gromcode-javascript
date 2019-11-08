@@ -16,6 +16,3 @@ const rooms = {
         { name: 'room3 name2' },
     ],
 };
-
-console.log(getPeople(rooms));
-console.log(getPeople({}));

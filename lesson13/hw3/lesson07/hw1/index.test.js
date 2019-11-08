@@ -14,6 +14,6 @@ it('should get square numbers array', () => {
 
 it('should get square numbers array', () => {
     const result = squareArray([0.5, 0.5, 0.5]);
-    console.log(result);
+    
     expect(result).toEqual([0.25, 0.25, 0.25]);
 });
