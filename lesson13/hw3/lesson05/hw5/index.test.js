@@ -1,23 +1,19 @@
 import { findDivCount } from './index';
 
 it('should get zero', () => {
-    const result = findDivCount(0, 0, 0);
-    console.log(result);
+    const result = findDivCount(-5, 5, 2);
     
-    expect(result).toEqual(0);
+    expect(result).toEqual(5);
 });
 
 it('should get zero', () => {
-    const result = findDivCount(10, 20, 0);
-    console.log(result);
-    console.log(10 % 0);
+    const result = findDivCount(-5, 0, 2);
     
-    expect(result).toEqual(0);
+    expect(result).toEqual(3);
 });
 
-it('should get zero', () => {
-    const result = findDivCount(1, 5, 1);
-    console.log(result);
+it('should get 1', () => {
+    const result = findDivCount(-5, 10, 5);
 
-    expect(result).toEqual(0);
+    expect(result).toEqual(4);
 });

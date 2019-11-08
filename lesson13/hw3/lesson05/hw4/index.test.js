@@ -12,8 +12,8 @@ it('should get false', () => {
     expect(result).toEqual(false);
 });
 
-it('should get true', () => {
-    const result = compareSums(0.111, 0.999, 0.888, 0.999);
+it('should get false', () => {
+    const result = compareSums(-10, 0, 0, 10);
 
-    expect(result).toEqual(true);
+    expect(result).toEqual(false);
 });
