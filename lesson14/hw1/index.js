@@ -1,17 +1,19 @@
 let result = 0;
 
-export function add(num) {
+function add(num) {
     result += num;
 }
 
-export function decrease(num) {
+function decrease(num) {
     result -= num;
 }
 
-export function reset() {
+function reset() {
     result = 0;
 }
 
-export function getMemo() {
+function getMemo() {
     return result;
 }
+
+export { add, decrease, reset, getMemo };
