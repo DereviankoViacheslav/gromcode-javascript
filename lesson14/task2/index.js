@@ -17,6 +17,7 @@ function createMessenger() {
     return {
         sendMessage,
         setMessage,
+        setSender,
     }
 }
 
