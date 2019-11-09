@@ -1,9 +1,9 @@
 function createMessenger() {
-    let message = 'Just learn it';
+    let message = 'Just learn it!';
     let sender = 'Gromcode';
 
     function sendMessage(name) {
-        console.log(`${name}, ${message}! Your ${sender}`);
+        console.log(`${name}, ${message} Your ${sender}`);
     }
 
     function setMessage(text) {
