@@ -26,9 +26,7 @@ function createLogger() {
         },
         getRecords: function(type) {
             const resultArray = type !== undefined ? logger.filter(el => el.type === type): logger;
-            return resultArray.sort((a, b) => {
-                return b.dateTime.getTime() - a.dateTime.getTime();
-            });;
+            return resultArray.sort((a, b) => b.dateTime.getTime() - a.dateTime.getTime());
         },
     };
 }
