@@ -10,4 +10,4 @@ function bar() {
 
 var foo = bar();
 
-export { foo };
+export default foo;
