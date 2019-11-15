@@ -23,3 +23,10 @@ it('should get 24', () => {
 
     expect(result).toEqual(24);
 })
+
+it('should get true if is array of functions', () => {
+    const array = createArrayOfFunctions(5);
+    let result = array.find(el => typeof el !== 'function');
+
+    expect(result).toEqual(undefined);
+})
