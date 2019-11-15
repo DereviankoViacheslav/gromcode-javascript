@@ -1,12 +1,17 @@
-const arr1 = [1, 2, 3, 5, 9, 8, 7, 6, 4, 3];
+function createArrayOfFunctions(num) {
 
+    if (num === undefined) return [];
+    if (typeof num !== 'number') return null;
+    
+    const arr = [];
 
+    for (let i = 0; i < num; i++) {
+        arr[i] = function() {
+            return i;
+        }
+    }
 
+    return arr;
+}
 
-console.log(arr1);
-console.log('=================');
-console.log(arr1.filter(el => el > 3));
-console.log(arr1);
-console.log('=================');
-console.log(arr1.sort((a, b) => a - b));
-console.log(arr1);
+export { createArrayOfFunctions };
