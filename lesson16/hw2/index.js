@@ -1,9 +1,13 @@
-const arr = [];
+var foo = 1; 
 
-for(let i = 0; i < 10; i++) {
-    arr[i] = function() {
-        return i;
+function bar() { 
+    if (!foo) { 
+        let foo = 10; 
     }
+
+    return foo;
 }
 
-export { arr };
+var foo = bar();
+
+export default foo;

@@ -1,11 +1,17 @@
-let a = 17;
+function createArrayOfFunctions(num) {
 
-if (a) {
-
-    let a = 1;
-
-    console.log(a);
+    if (num === undefined) return [];
+    if (typeof num !== 'number') return null;
     
+    const arr = [];
+
+    for (let i = 0; i < num; i++) {
+        arr[i] = function() {
+            return i;
+        }
+    }
+
+    return arr;
 }
 
-console.log(a);
+export { createArrayOfFunctions };
