@@ -1,1 +1,7 @@
-console.log('Hello, world!');
+function defer(func, ms) {
+    return function() {
+        setTimeout(() => func.apply(this, arguments), ms);
+    }
+}
+
+export { defer };
