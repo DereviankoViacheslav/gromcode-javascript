@@ -2,6 +2,7 @@ const user = {
     firstName: 'John',
     lastName: 'Doe',
     getFullName() {
+        if(!this.firstName && !this.lastName) return undefined;
         return this.firstName + ' ' + this.lastName;
     },
     setFullName(fullName) {
