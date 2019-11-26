@@ -1,14 +1,13 @@
 class Order {
 
-    constructor(id, price, dateCreated, isConfirmed, dateConfirmed, city, type) {
-        this.id = id;
+    constructor(price, city, type) {
+        this.id = `${Math.random()}`;
+        this.dateCreated = new Date();
+        this.isConfirmed = false;
+        this.dateConfirmed = null;
         this.price = price;
-        this.dateCreated = dateCreated;
-        this.isConfirmed = isConfirmed;
-        this.dateConfirmed = dateConfirmed;
         this.city = city;
         this.type = type;
-        // this.id = `${Math.random()}`;
     }
 
     checkPrice() {
