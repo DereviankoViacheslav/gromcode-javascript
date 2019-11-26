@@ -21,11 +21,6 @@ class Ship extends Vehicle {
         this.maxSpeed = maxSpeed;
     }
 
-    move() {
-        console.log(`Anchor is raised`);
-        this.move();
-    }
-
     start() {
         console.log(`${this.name} lifting anchor up`);
         this.move();
