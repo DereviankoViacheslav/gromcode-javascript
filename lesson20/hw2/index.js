@@ -1,7 +1,7 @@
 class User {
-    
-    constructor(name, sessionId) {
-        this.id = `${Math.random()}`;
+
+    constructor(id, name, sessionId) {
+        this.id = id;
         this.name = name;
         this.sessionId = sessionId;
     }
@@ -9,6 +9,17 @@ class User {
 
 class UserRepository {
 
+    constructor(users) {
+        this.users = users;
+        this.name = name;
+        this.sessionId = sessionId;
+    }
+
+    getUserNames() {}
+
+    getUserIds() {}
+    
+    getUserNameById(userId) {}
 };
 
 /*Создайте класс User и UserRepository - коллекцию польсователей
