@@ -1,9 +1,9 @@
 class Order {
 
-    constructor(price, dateCreated, isConfirmed, dateConfirmed, city, type) {
+    constructor(price, city, type) {
         this.price = price;
-        this.dateCreated = dateCreated;
-        this.isConfirmed = isConfirmed;
+        this.dateCreated = new Date();
+        this.isConfirmed = false;
         this.dateConfirmed = dateConfirmed;
         this.city = city;
         this.type = type;
