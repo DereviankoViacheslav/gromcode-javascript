@@ -5,7 +5,7 @@ class User {
         this.age = age;
     }
 
-    createEmpty() {
+    static createEmpty() {
         return new User();
     }
     
