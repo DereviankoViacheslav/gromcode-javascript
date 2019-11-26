@@ -4,6 +4,10 @@ class User {
         this.name = name;
         this.age = age;
     }
+
+    createEmpty() {
+        return new User();
+    }
     
     sayHi() {
         console.log(`Hi, I am ${this.name}`);
