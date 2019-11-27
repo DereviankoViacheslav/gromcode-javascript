@@ -12,14 +12,12 @@ const renderList = (tasks) => {
     .sort((a, b) => a.done - b.done)
     .map(({ text, done}) => {
         const listItem = document.createElement('li');
-        listItem.classList.add('list__item');
-        
-        if(done) listItem.classList.add('list__item_done');
-        
         const chBox = document.createElement('input');
+        listItem.classList.add('list__item');
+        chBox.classList.add('list__item-checkbox');
         chBox.setAttribute('type', 'checkbox');
         chBox.checked = done;
-        chBox.classList.add('list__item-checkbox');
+        if(done) listItem.classList.add('list__item_done');
         listItem.append(chBox, text);
 
         return listItem;
