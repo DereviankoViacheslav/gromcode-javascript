@@ -17,9 +17,9 @@ const renderList = (tasks) => {
         if(done) listItem.classList.add('list__item_done');
         
         const chBox = document.createElement('input');
-        chBox.classList.add('list__item-checkbox');
         chBox.setAttribute('type', 'checkbox');
         chBox.checked = done;
+        chBox.classList.add('list__item-checkbox');
         listItem.append(chBox, text);
 
         return listItem;
