@@ -26,3 +26,5 @@ class UserRepository {
         return user ? user._name : user;
     }
 };
+
+export { User, UserRepository };
