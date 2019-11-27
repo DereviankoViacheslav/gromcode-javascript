@@ -26,19 +26,3 @@ export class UserRepository {
         return user ? user._name : null;
     }
 };
-
-// const arr = [
-//     new User(1, 'aaa', 10001),
-//     new User(2, 'bbb', 10002),
-//     new User(3, 'ccc', 10003),
-//     new User(4, 'ddd', 10004),
-//     new User(5, 'eee', 10005),
-// ];
-
-// const Users = new UserRepository(arr);
-
-// console.log(Users._users);
-// console.log(Users.getUserNames());
-// console.log(Users.getUserIds());
-// console.log(Users.getUserNameById(4));
-// console.log(Users.getUserNameById(6));
