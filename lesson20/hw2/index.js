@@ -1,9 +1,9 @@
 export class User {
 
     constructor(id, name, sessionId) {
-        this.id = id;
-        this.name = name;
-        this.sessionId = sessionId;
+        this._id = id;
+        this._name = name;
+        this._sessionId = sessionId;
     }
 };
 
@@ -14,16 +14,16 @@ export class UserRepository {
     }
 
     getUserNames() {
-        return this._users.map(({ name }) => name);
+        return this._users.map(({ _name }) => _name);
     }
 
     getUserIds() {
-        return this._users.map(({ id }) => id);
+        return this._users.map(({ _id }) => _id);
     }
     
     getUserNameById(userId) {
-        const user = this._users.find(({ id }) => id === userId);
-        return user ? user.name : user;
+        const user = this._users.find(({ _id }) => _id === userId);
+        return user ? user._name : null;
     }
 };
 
@@ -41,8 +41,4 @@ export class UserRepository {
 // console.log(Users.getUserNames());
 // console.log(Users.getUserIds());
 // console.log(Users.getUserNameById(4));
-// Users._users.push(new User(6, 'fff', 19996));
-// Users._users = 'str';
-// console.log(Users._users);
-
-// export { User, UserRepository };
+// console.log(Users.getUserNameById(6));
