@@ -10,21 +10,19 @@ class User {
 class UserRepository {
 
     constructor(users) {
-        this.users = Object.freeze(users);
+        this._users = Object.freeze(users);
     }
 
     getUserNames() {
-        return this.users.map(({ name }) => name);
+        return this._users.map(({ name }) => name);
     }
 
     getUserIds() {
-        return this.users.map(({ id }) => id);
+        return this._users.map(({ id }) => id);
     }
     
     getUserNameById(userId) {
-        const user = this.users.find(({ id }) => id === userId);
+        const user = this._users.find(({ id }) => id === userId);
         return user ? user.name : user;
     }
 };
-
-export { User, UserRepository };
