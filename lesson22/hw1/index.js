@@ -29,6 +29,8 @@ const addHandlers = () => {
     sapnElem.addEventListener('click', logGreenSpan);
 };
 
+addHandlers();
+
 btnAttatchHandlers.addEventListener('click', addHandlers);
 
 const removeHandlers = () => {
