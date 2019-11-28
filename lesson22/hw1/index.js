@@ -1,54 +1,34 @@
-const divElem = document.querySelector('.rect_div');
-const pElem = document.querySelector('.rect_p');
-const sapnElem = document.querySelector('.rect_span');
-const eventsListElem = document.querySelector('.events-list');
-const btnClear = document.querySelector('.clear-btn');
-const btnRemoveHandlers = document.querySelector('.remove-handlers-btn');
-const btnAttatchHandlers = document.querySelector('.attach-handlers-btn');
+const tasks = [
+    { text: 'Buy milk', done: false },
+    { text: 'Pick up Tom from airport', done: false },
+    { text: 'Visit party', done: false },
+    { text: 'Visit doctor', done: true },
+    { text: 'Buy meat', done: true },
+];
 
-const logTarget = (text, color) => {
-    eventsListElem.innerHTML += `<span style="color: ${color}; margin-left: 8px">${text}</span>`;
-};
+const tasksList = document.querySelector('.list');
 
-const logGreenDiv = logTarget.bind(null, 'div', 'green');
-const logGreenP = logTarget.bind(null, 'p', 'green');
-const logGreenSpan = logTarget.bind(null, 'span', 'green');
-
-const logGreyDiv = logTarget.bind(null, 'div', 'grey');
-const logGreyP = logTarget.bind(null, 'p', 'grey');
-const logGreySpan = logTarget.bind(null, 'span', 'grey');
-
-const addHandlers = () => {
-    divElem.addEventListener('click', logGreyDiv, true);
-    divElem.addEventListener('click', logGreenDiv);
-
-    pElem.addEventListener('click', logGreyP, true);
-    pElem.addEventListener('click', logGreenP);
-
-    sapnElem.addEventListener('click', logGreySpan, true);
-    sapnElem.addEventListener('click', logGreenSpan);
-};
-
-addHandlers();
-
-btnAttatchHandlers.addEventListener('click', addHandlers);
-
-const removeHandlers = () => {
-    divElem.removeEventListener('click', logGreyDiv, true);
-    divElem.removeEventListener('click', logGreenDiv);
+const renderList = (tasks) => {
+    const listCreatedTasks = tasks
+    .sort((a, b) => a.done - b.done)
+    .map(({ text, done}) => {
+        const chBox = document.createElement('input');
+        const listItem = document.createElement('li');
+        listItem.classList.add('list__item');
+        chBox.setAttribute('type', 'checkbox');
+        // chBox.checked = done;
+        chBox.classList.add('list__item-checkbox');
+        listItem.append(chBox, text);
+        
+        return listItem;
+    });
     
-    pElem.removeEventListener('click', logGreyP, true);
-    pElem.removeEventListener('click', logGreenP);
-    
-    sapnElem.removeEventListener('click', logGreySpan, true);
-    sapnElem.removeEventListener('click', logGreenSpan);
+    tasksList.append(...listCreatedTasks);
 };
 
-btnRemoveHandlers.addEventListener('click', removeHandlers);
+renderList(tasks);
 
-const clear = (element) => {
-    element.innerHTML = '';
+function taskHandler(event) {
+    if(done) listItem.classList.add('list__item_done');
+    event.target.checked
 };
-
-const clearBox = clear.bind(null, eventsListElem);
-btnClear.addEventListener('click', clearBox);
