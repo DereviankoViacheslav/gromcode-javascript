@@ -2,7 +2,7 @@ const tasks = [{
         id: 0,
         text: 'Buy milk',
         done: false,
-        dateСreation: new Date(2018, 7, 1, 0, 0, 0, 0),
+        dateСreation: new Date(2012, 9, 1, 0, 0, 0, 0),
     },
     {
         id: 4,
@@ -14,19 +14,19 @@ const tasks = [{
         id: 2,
         text: 'Visit party',
         done: false,
-        dateСreation: new Date(2012, 9, 1, 0, 0, 0, 0),
+        dateСreation: new Date(2018, 7, 1, 0, 0, 0, 0),
     },
     {
         id: 3,
         text: 'Visit doctor',
         done: true,
-        dateСreation: new Date(2019, 3, 1, 0, 0, 0, 0),
+        dateСreation: new Date(2011, 4, 1, 0, 0, 0, 0),
     },
     {
         id: 1,
         text: 'Buy meat',
         done: true,
-        dateСreation: new Date(2011, 4, 1, 0, 0, 0, 0),
+        dateСreation: new Date(2019, 3, 1, 0, 0, 0, 0),
     },
 ];
 
@@ -54,7 +54,7 @@ function renderList(tasksHTML) {
 function createListTasksHTML(tasks) {
     return tasks
     .sort((a, b) => b.dateСreation - a.dateСreation)
-    .sort((a, b) => b.done - a.done)
+    .sort((a, b) => a.done - b.done)
     .map(({ id, text, done }) => {
         const listItem = document.createElement('li');
         listItem.classList.add('list__item');
