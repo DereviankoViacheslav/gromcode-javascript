@@ -1,34 +1,83 @@
-const tasks = [
-    { text: 'Buy milk', done: false },
-    { text: 'Pick up Tom from airport', done: false },
-    { text: 'Visit party', done: false },
-    { text: 'Visit doctor', done: true },
-    { text: 'Buy meat', done: true },
+const tasks = [{
+        id: 0,
+        text: 'Buy milk',
+        done: false,
+        dateСreation: new Date(2018, 7, 1, 0, 0, 0, 0),
+    },
+    {
+        id: 4,
+        text: 'Pick up Tom from airport',
+        done: false,
+        dateСreation: new Date(2013, 1, 1, 0, 0, 0, 0),
+    },
+    {
+        id: 2,
+        text: 'Visit party',
+        done: false,
+        dateСreation: new Date(2012, 9, 1, 0, 0, 0, 0),
+    },
+    {
+        id: 3,
+        text: 'Visit doctor',
+        done: true,
+        dateСreation: new Date(2019, 3, 1, 0, 0, 0, 0),
+    },
+    {
+        id: 1,
+        text: 'Buy meat',
+        done: true,
+        dateСreation: new Date(2011, 4, 1, 0, 0, 0, 0),
+    },
 ];
 
 const tasksList = document.querySelector('.list');
+tasksList.addEventListener('change', taskHandler);
 
-const renderList = (tasks) => {
-    const listCreatedTasks = tasks
-    .sort((a, b) => a.done - b.done)
-    .map(({ text, done}) => {
-        const chBox = document.createElement('input');
-        const listItem = document.createElement('li');
-        listItem.classList.add('list__item');
-        chBox.setAttribute('type', 'checkbox');
-        // chBox.checked = done;
-        chBox.classList.add('list__item-checkbox');
-        listItem.append(chBox, text);
-        
-        return listItem;
-    });
-    
-    tasksList.append(...listCreatedTasks);
-};
+const taskInput = document.querySelector('.task-input');
 
-renderList(tasks);
+const createTaskBtn = document.querySelector('.create-task-btn');
+createTaskBtn.addEventListener('click', addTask);
+
+renderList(createListTasksHTML(tasks));
 
 function taskHandler(event) {
-    if(done) listItem.classList.add('list__item_done');
-    event.target.checked
+    const task = tasks.find(elem => elem.id === +event.target.parentElement.id);
+    task.done = event.target.checked;
+    renderList(createListTasksHTML(tasks));
+};
+
+function renderList(tasksHTML) {
+    tasksList.innerHTML = '';
+    tasksList.append(...tasksHTML);
+};
+
+function createListTasksHTML(tasks) {
+    return tasks
+    .sort((a, b) => b.dateСreation - a.dateСreation)
+    .sort((a, b) => b.done - a.done)
+    .map(({ id, text, done }) => {
+        const listItem = document.createElement('li');
+        listItem.classList.add('list__item');
+        listItem.setAttribute('id', `${id}`);
+        const chBox = document.createElement('input');
+        chBox.setAttribute('type', 'checkbox');
+        chBox.checked = done;
+        if (done) listItem.classList.add('list__item_done');
+        chBox.classList.add('list__item-checkbox');
+        listItem.append(chBox, text);
+
+        return listItem;
+    });
+};
+
+function addTask() {
+    if (!taskInput.value.trim()) return;
+    tasks.push({
+        id: tasks.length,
+        text: taskInput.value,
+        done: false,
+        dateСreation: new Date(),
+    });
+    taskInput.value = '';
+    renderList(createListTasksHTML(tasks));
 };
