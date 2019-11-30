@@ -46,8 +46,9 @@
   width: 200px;
   border-radius: 8px;
   font-size: 18px;
-  background-color: coral;
+  background-color: #daa520;
   color: white;
+  text-transform: uppercase;
 }
 
 /*# sourceMappingURL=style.css.map */
