@@ -17,11 +17,6 @@ function getDiff(startDate, endDate) {
     return `${cntDays}d ${cntHours}h ${cntMinutes}m ${cntSeconds}s`;
 }
 
-// const startDate = new Date(2000, 5);
-// const endDate = new Date(2001, 1, 1, 15, 45, 50);
-
-// getDiff(startDate, endDate);
-
 export {
     getDiff
 };
