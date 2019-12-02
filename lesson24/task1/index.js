@@ -6,8 +6,6 @@ function dayOfWeek(date, days) {
     return weekDays[new Date(dateInFuture).getDay() - 1];
 }
 
-console.log(dayOfWeek(new Date(), 1));
-
 export {
     dayOfWeek
 };
