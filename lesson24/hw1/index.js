@@ -1,10 +1,9 @@
+const MILLSEC_PER_MINUTE = 60 * 1000;
+const MILLSEC_PER_HOUR = 60 * MILLSEC_PER_MINUTE;
+const MILLSEC_PER_DAY = 24 * MILLSEC_PER_HOUR;
+
 function getDiff(startDate, endDate) {
     const diffMs = Math.abs(endDate - startDate);
-
-    const MILLSEC_PER_MINUTE = 60 * 1000;
-    const MILLSEC_PER_HOUR = 60 * MILLSEC_PER_MINUTE;
-    const MILLSEC_PER_DAY = 24 * MILLSEC_PER_HOUR;
-
     const countDays = Math.trunc(diffMs / MILLSEC_PER_DAY);
     const countDaysInMs = countDays * MILLSEC_PER_DAY;
 
@@ -18,11 +17,6 @@ function getDiff(startDate, endDate) {
 
     return `${countDays}d ${countHours}h ${countMinutes}m ${countSeconds}s`;
 }
-
-// const start = new Date(2005, 5, 6, 7, 55, 10);
-// const end = new Date(2006, 1, 7, 8, 15, 45);
-
-// console.log(getDiff(start, end));
 
 export {
     getDiff

@@ -1,6 +1,8 @@
+function studentsBirthDays(students) {
+    
+}
 
-
-
+export { studentsBirthDays };
 /*Напишите функцию, которая сгруппирует студентов по дню рождения
 
 Основные требования:
