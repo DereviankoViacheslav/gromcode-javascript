@@ -9,7 +9,7 @@ it('should get current day of the week', () => {
     console.log(result, '1 ' + weekDays[currentDayOfWeek]);
 
     expect(result).toEqual(weekDays[currentDayOfWeek]);
-})
+});
 
 it('should get next day of the week', () => {
     const result = dayOfWeek(currentDate, 1);
@@ -17,7 +17,7 @@ it('should get next day of the week', () => {
     console.log(result, '2 ' + weekDays[nextDayOfWeek]);
 
     expect(result).toEqual(weekDays[nextDayOfWeek]);
-})
+});
 
 it('should get previous day of the week', () => {
     const result = dayOfWeek(currentDate, -1);
@@ -25,4 +25,4 @@ it('should get previous day of the week', () => {
     console.log(result, '3 ' + weekDays[previousDayOfWeek]);
 
     expect(result).toEqual(weekDays[previousDayOfWeek]);
-})
+});
