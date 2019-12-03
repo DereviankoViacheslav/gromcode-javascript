@@ -7,8 +7,8 @@ function studentsBirthDays(students) {
     const result = arrStudents
         .sort((a, b) => new Date(a.birthDate).getDate() - new Date(b.birthDate).getDate())
         .reduce((acc, { name, birthDate }) => {
-            const nameMonth = MONTHS[new Date(birthDate).getMonth()];
-            return {...acc, [nameMonth]: acc[nameMonth] ? acc[nameMonth].concat([name]) : [name]};
+            const month = MONTHS[new Date(birthDate).getMonth()];
+            return {...acc, [month]: acc[month] ? acc[month].concat(name) : [name]};
         }, {});
     return result;
 };
