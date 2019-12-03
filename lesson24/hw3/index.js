@@ -24,14 +24,14 @@ const tasks = [{
         text: 'Visit doctor',
         done: true,
         dateCreated: new Date(2011, 4, 1),
-        dateСompleted: new Date(2011, 4, 2),
+        dateСompleted: new Date(2011, 4, 5),
     },
     {
         id: 1,
         text: 'Buy meat',
         done: true,
         dateCreated: new Date(2019, 3, 1),
-        dateСompleted: new Date(2011, 4, 5),
+        dateСompleted: new Date(2011, 4, 2),
     },
 ];
 
