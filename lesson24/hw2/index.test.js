@@ -2,27 +2,27 @@ import { studentsBirthDays } from './index'
 
 const arrStudents = [{
         name: 'Tom',
-        birthDay: '05/15/2015',
+        birthDate: '05/15/2015',
     },
     {
         name: 'Bob',
-        birthDay: '01/01/2013',
+        birthDate: '01/01/2013',
     },
     {
         name: 'Jeck',
-        birthDay: '05/05/2011',
+        birthDate: '05/05/2011',
     },
     {
         name: 'Anna',
-        birthDay: '12/19/2008',
+        birthDate: '12/19/2008',
     },
     {
         name: 'Nick',
-        birthDay: '01/25/2009',
+        birthDate: '01/25/2009',
     },
     {
         name: 'Lusy',
-        birthDay: '12/29/2012',
+        birthDate: '12/29/2012',
     },
 ];
 
