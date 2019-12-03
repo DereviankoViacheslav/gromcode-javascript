@@ -1,40 +1,40 @@
-// const tasks = [
-//     {
-//         id: 0,
-//         text: 'Buy milk',
-//         done: false,
-//         dateCreated: new Date(2018, 7, 1),
-//         dateСompleted: undefined,
-//     },
-//     {
-//         id: 4,
-//         text: 'Pick up Tom from airport',
-//         done: false,
-//         dateCreated: new Date(2013, 1, 1),
-//         dateСompleted: undefined,
-//     },
-//     {
-//         id: 2,
-//         text: 'Visit party',
-//         done: false,
-//         dateCreated: new Date(2012, 9, 1),
-//         dateСompleted: undefined,
-//     },
-//     {
-//         id: 3,
-//         text: 'Visit doctor',
-//         done: true,
-//         dateCreated: new Date(2011, 4, 1),
-//         dateСompleted: new Date(2011, 4, 5),
-//     },
-//     {
-//         id: 1,
-//         text: 'Buy meat',
-//         done: true,
-//         dateCreated: new Date(2019, 3, 1),
-//         dateСompleted: new Date(2011, 4, 2),
-//     },
-// ];
+const tasks = [
+    {
+        id: 0,
+        text: 'Buy milk',
+        done: false,
+        dateCreated: new Date(2018, 7, 1),
+        dateСompleted: undefined,
+    },
+    {
+        id: 4,
+        text: 'Pick up Tom from airport',
+        done: false,
+        dateCreated: new Date(2013, 1, 1),
+        dateСompleted: undefined,
+    },
+    {
+        id: 2,
+        text: 'Visit party',
+        done: false,
+        dateCreated: new Date(2012, 9, 1),
+        dateСompleted: undefined,
+    },
+    {
+        id: 3,
+        text: 'Visit doctor',
+        done: true,
+        dateCreated: new Date(2011, 4, 1),
+        dateСompleted: new Date(2011, 4, 5),
+    },
+    {
+        id: 1,
+        text: 'Buy meat',
+        done: true,
+        dateCreated: new Date(2019, 3, 1),
+        dateСompleted: new Date(2011, 4, 2),
+    },
+];
 
 const tasksList = document.querySelector('.list');
 tasksList.addEventListener('change', taskHandler);
