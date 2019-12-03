@@ -2,7 +2,7 @@ const tasks = [{
         id: 0,
         text: 'Buy milk',
         done: false,
-        dateCreated: new Date(2012, 9, 1),
+        dateCreated: new Date(2018, 7, 1),
         dateСompleted: undefined,
     },
     {
@@ -16,7 +16,7 @@ const tasks = [{
         id: 2,
         text: 'Visit party',
         done: false,
-        dateCreated: new Date(2018, 7, 1),
+        dateCreated: new Date(2012, 9, 1),
         dateСompleted: undefined,
     },
     {
