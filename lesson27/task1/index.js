@@ -1,4 +1,4 @@
-function getLocalStorageData() {
+export function getLocalStorageData() {
     return Object.entries(localStorage)
         .reduce((acc, [key, value]) => {
             let newValue;
@@ -7,8 +7,6 @@ function getLocalStorageData() {
             } catch (error) {
                 newValue = value;
             }
-            return {...acc, [key]: value,};
+            return {...acc, [key]: value};
         }, {});
 }
-
-export { getLocalStorageData };
