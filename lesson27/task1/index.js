@@ -1,14 +1,14 @@
-function getLocalStorageData () {
+function getLocalStorageData() {
     return Object.entries(localStorage)
-        .reduce((acc,[key,value]) => {
+        .reduce((acc, [key, value]) => {
             let newValue;
             try {
                 newValue = JSON.parse(value);
-            } catch(e) {
+            } catch (error) {
                 newValue = value;
             }
             return {...acc, [key]: newValue,};
-        },{});
+        }, {});
 };
 
 export { getLocalStorageData };
