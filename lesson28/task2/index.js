@@ -8,4 +8,4 @@ function markFavorites(tree, favorites) {
     }
 };
 
-// export { markFavorites };
+export { markFavorites };
