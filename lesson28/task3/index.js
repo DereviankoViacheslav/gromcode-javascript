@@ -12,4 +12,4 @@ function triple(a) {
     return mult(3)(a);
 };
 
-export { twice, triple };
+export { mult, twice, triple };
