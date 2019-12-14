@@ -4,8 +4,8 @@
 //     };
 // };
 
-// export { compose };
-
-export const compose = (...funcs) => value => {
+const compose = (...funcs) => value => {
     return funcs.reduce((acc, func) => func(acc), value);
 };
+
+export { compose };
