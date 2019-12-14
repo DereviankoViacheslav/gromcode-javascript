@@ -1,4 +1,4 @@
-const calc = initValue => {
+function calc(initValue) {
     let result = initValue;
     const calculator = {
         add(value) {
