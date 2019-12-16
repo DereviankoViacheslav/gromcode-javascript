@@ -57,4 +57,4 @@ const onImageLoaded = (error,data) => {
     sizeElem.textContent = `${width} x ${height}`;
 };
 
-addImage('https://gromcode.s3.eu-central-1.amazonaws.com/front-end/html-css/lesson15/task1/big.jpeg', onImageLoaded);
+addImage('https://server.com/image.png', onImageLoaded);
