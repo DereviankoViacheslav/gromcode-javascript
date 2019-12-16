@@ -4,12 +4,12 @@ function requestUserData(userId, callback) {
             callback(null, 'Failed to load user data');
             return;
         }
-        callback({
+        callback(null, {
             name: 'John',
             age: 17,
             userId,
             email: 'userid777@example.com',
-        }, null);
+        });
     }, Math.floor(Math.random() * 3 + 1) * 1000);
 };
 
