@@ -1,10 +1,10 @@
 function requestUserData(userId, callback) {
     setTimeout(() => {
         if (userId === 'broken') {
-            callback('Failed to load user data');
+            callback(null, 'Failed to load user data');
             return;
         }
-        callback(null, {
+        return callback({
             name: 'John',
             age: 17,
             userId,
