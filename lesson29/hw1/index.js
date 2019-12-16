@@ -9,7 +9,7 @@ function requestUserData(userId, callback) {
             age: 17,
             userId,
             email: 'userid777@example.com'
-        });
+        }, 'S');
     }, Math.floor(Math.random() * 3 + 1) * 1000);
 };
 
