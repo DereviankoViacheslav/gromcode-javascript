@@ -8,7 +8,7 @@ function requestUserData(userId, callback) {
             name: 'John',
             age: 17,
             userId,
-            email: 'userid777@example.com',
+            email: `${userId}@example.com`,
         });
     }, Math.floor(Math.random() * 3 + 1) * 1000);
 };
