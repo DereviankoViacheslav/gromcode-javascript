@@ -4,7 +4,7 @@ function requestUserData(userId, callback) {
             callback(null, 'Failed to load user data');
             return;
         }
-        return callback({
+        callback({
             name: 'John',
             age: 17,
             userId,
@@ -12,16 +12,5 @@ function requestUserData(userId, callback) {
         });
     }, Math.floor(Math.random() * 3 + 1) * 1000);
 };
-
-// requestUserData('broken', foo);
-
-// function foo(obj, str) {
-//     if (!obj) {
-//         console.log(str);
-//         return;
-//     }
-//     console.log('valid ==> ',str);
-//     console.log(obj.userId);
-// }
 
 export { requestUserData };
