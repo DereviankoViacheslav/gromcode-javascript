@@ -1,6 +1,8 @@
+const imgSrc = 'https://gromcode.s3.eu-central-1.amazonaws.com/front-end/html-css/lesson15/task1/big.jpeg';
 
-// function addImage(imgSrc, callback) {
-export const addImage = (imgSrc, callback) => {
+addImage(imgSrc, onImageLoaded);
+
+function addImage(imgSrc, callback) {
     const imgElem = document.createElement('img');
     imgElem.setAttribute('alt', 'My Photo');
     imgElem.src = imgSrc;
@@ -16,8 +18,7 @@ export const addImage = (imgSrc, callback) => {
     imgElem.addEventListener('error', () => callback('Image load failed'));
 };
 
-const onImageLoaded = (error, data) => {
-    // function onImageLoaded(error, data) {
+function onImageLoaded(error, data) {
     if (error) {
         console.log(error);
         return;
@@ -27,7 +28,4 @@ const onImageLoaded = (error, data) => {
     sizeElem.textContent = `${width} x ${height}`;
 };
 
-const imgSrc = 'https://gromcode.s3.eu-central-1.amazonaws.com/front-end/html-css/lesson15/task1/big.jpeg';
-
-addImage(imgSrc, onImageLoaded);
-// export { addImage };
+export { addImage };
