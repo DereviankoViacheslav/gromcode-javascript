@@ -6,7 +6,7 @@ function maxFibonacci(value) {
         let fib = prev + next;
         prev = next;
         next = fib;
-        if(fib === value) return fib;
+        if(fib === value) return next;
         if(fib > value) return prev;
     }
 };
