@@ -7,10 +7,21 @@ function requestUserData(userId, callback) {
         callback({
             name: 'John',
             age: 17,
-            userId: userId,
+            userId,
             email: 'userid777@example.com',
-        });
+        }, null);
     }, Math.floor(Math.random() * 3 + 1) * 1000);
 };
+
+// requestUserData('broken', foo);
+
+// function foo(obj, str) {
+//     if (!obj) {
+//         console.log(str);
+//         return;
+//     }
+//     console.log('valid ==> ',str);
+//     console.log(obj.userId);
+// }
 
 export { requestUserData };
