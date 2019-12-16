@@ -3,19 +3,15 @@ function requestUserData(userId, callback) {
         if (userId === 'broken') {
             callback(null, 'Failed to load user data');
             return;
+        } else {
+            callback({
+                name: 'John',
+                age: 17,
+                userId,
+                email: 'userid777@example.com',
+            });
         }
-        callback({
-            name: 'John',
-            age: 17,
-            userId,
-            email: 'userid777@example.com',
-        });
     }, Math.floor(Math.random() * 3 + 1) * 1000);
 };
-// let a = 50;
-// while (a > 0) {
-//     console.log(Math.floor(Math.random() * 3 + 1) * 1000);
-//     a--;
-// };
 
 export { requestUserData };
