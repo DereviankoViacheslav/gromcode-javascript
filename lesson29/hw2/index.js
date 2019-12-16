@@ -1,1 +1,7 @@
-console.log('Hello, world!');
+function delay(delay, callback, context, ...args) {
+    setTimeout(() => {
+        callback.bind(context)(...args);
+    }, delay);
+};
+
+export { delay };
