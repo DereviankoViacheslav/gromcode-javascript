@@ -1,14 +1,12 @@
 function maxFibonacci(value) {
     if(value <= 1) return 0;
-    let a = 1;
-    let b = 1;
-    for (let i = 3; i <= value; i++) {
-        let c = a + b;
-        a = b;
-        b = c;
-        if (b >= value) return a;
+    let prev = 0, next = 1;
+    while(next < value) {
+        let fib = prev + next;
+        prev = next;
+        next = fib;
+        if(fib >= value) return prev;
     }
-    return b;
 };
 
 export { maxFibonacci };
