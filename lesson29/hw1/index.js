@@ -8,9 +8,14 @@ function requestUserData(userId, callback) {
             name: 'John',
             age: 17,
             userId,
-            email: 'userid777@example.com'
-        }, 'S');
+            email: 'userid777@example.com',
+        });
     }, Math.floor(Math.random() * 3 + 1) * 1000);
 };
+// let a = 50;
+// while (a > 0) {
+//     console.log(Math.floor(Math.random() * 3 + 1) * 1000);
+//     a--;
+// };
 
 export { requestUserData };
