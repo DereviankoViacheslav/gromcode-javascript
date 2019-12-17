@@ -1,20 +1,21 @@
-const asyncNumber1 = getValueWithDelay(24, 1000);
-const asyncNumber2 = getValueWithDelay(undefined, 2000);
-const asyncNumber3 = Promise.reject(new Error('err'));
-const asyncNumber4 = getValueWithDelay('15', 4000);
-const asyncNumber5 = getValueWithDelay(10, 5000);
+// const asyncNum2 = getValueWithDelay(undefined, 2000);
+// const asyncNum4 = getValueWithDelay('15', 4000);
+// const asyncNum5 = getValueWithDelay(10, 5000);
+// const asyncNum6 = getValueWithDelay(25, 6000);
+// const asyncNum7 = getValueWithDelay(50, 7000);
+// // const asyncNum7 = Promise.reject(new Error('err'));
 
-asyncSum(asyncNumber1, asyncNumber2, asyncNumber3, asyncNumber4, asyncNumber5)
-    .then(result => console.log(result));
+// asyncSum(asyncNum2, asyncNum4, asyncNum5, asyncNum6, asyncNum7)
+//     .then(result => console.log(result));
 
-function getValueWithDelay(value, delay) {
-    return new Promise(resolve => {
-        setTimeout(() => {
-            console.log(value);
-            resolve(value)
-        }, delay);
-    });
-};
+// function getValueWithDelay(value, delay) {
+//     return new Promise(resolve => {
+//         setTimeout(() => {
+//             console.log(value);
+//             resolve(value)
+//         }, delay);
+//     });
+// };
 
 function asyncSum(...asyncNumbers) {
     return Promise.all(asyncNumbers)
