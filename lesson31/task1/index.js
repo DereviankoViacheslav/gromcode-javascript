@@ -2,7 +2,7 @@ function requestUserData(userId) {
     return new Promise((resolve, reject) => {
         if (userId === 'broken') {
             setTimeout(() => {
-                reject(new Error(''));
+                reject(new Error('User not found'));
             }, 500);
             return;
         }
