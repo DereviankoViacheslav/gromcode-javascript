@@ -4,7 +4,7 @@ function delay(delay) {
             resolve(console.log('resolve'));
         }, delay);
     });
-
+    
     return p;
 };
 
