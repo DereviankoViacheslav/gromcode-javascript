@@ -18,9 +18,13 @@ function onSearchMostActiveDevs() {
 
 function getMostActiveDevs(options) {
     const { days, userId, repoId } = options;
+    // const res = fetch(`https://api.github.com/repos/DereviankoViacheslav/calendar-web-app/commits?per_page=100`)
     return fetch(`https://api.github.com/repos/${userId}/${repoId}/commits?per_page=100`)
         .then(respons => respons.json())
         .then(commits => getDevelopers(commits, days));
+    // console.log(res);
+    // return res;
+
 };
 
 function getDevelopers(commits, days) {
@@ -56,7 +60,7 @@ function renderUsers(users) {
     let listItem = '';
 
     users.map(({ name }) => {
-    // users.map(({ name, avatar }) => {
+        // users.map(({ name, avatar }) => {
         // <img class="user__avatar" src="${avatar}" alt="User Avatar">
         listItem += `<li class="users-list__item">
                         <span class="user__name">${name}</span>
