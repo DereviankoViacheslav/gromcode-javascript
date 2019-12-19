@@ -1,0 +1,20 @@
+label {
+    display: block;
+}
+
+.form {
+    padding: 10px;
+}
+
+.form__btn,
+.input {
+    padding: 7px;
+    border-radius: 8px;
+    border: 3px solid #ccc;
+    background-color: #fff;
+    outline: none;
+}
+
+.form__input {
+    margin-right: 5px;
+}
