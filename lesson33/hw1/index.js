@@ -17,7 +17,6 @@ function onSearchMostActiveDevs() {
 // `https://api.github.com/repos/DereviankoViacheslav/calendar-web-app/commits?per_page=100`)
 
 function getMostActiveDevs({ days, userId, repoId }) {
-    // const { days, userId, repoId } = options;
     return fetch(`https://api.github.com/repos/${userId}/${repoId}/commits?per_page=100`)
         .then(respons => respons.json())
         .then(commits => getDevelopers(commits, days));
