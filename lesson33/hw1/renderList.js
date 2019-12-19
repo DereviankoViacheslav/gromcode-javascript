@@ -13,8 +13,8 @@ function renderList() {
 function onSearchMostActiveDevs() {
     const userId = inputNameOwnerElem.value;
     const repoId = inputNameRepoElem.value;
-    // const days = inputAmountDaysElem.value;
-    const days = 7;
+    const days = inputAmountDaysElem.value;
+    // const days = 7;
 
     getMostActiveDevs({ days, userId, repoId })
         .then(users => renderUsers(users));
