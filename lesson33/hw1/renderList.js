@@ -14,7 +14,6 @@ function onSearchMostActiveDevs() {
     const userId = inputNameOwnerElem.value;
     const repoId = inputNameRepoElem.value;
     const days = inputAmountDaysElem.value;
-    // const days = 7;
 
     getMostActiveDevs({ days, userId, repoId })
         .then(users => renderUsers(users));
@@ -23,9 +22,10 @@ function onSearchMostActiveDevs() {
 function renderUsers(users) {
     let listItem = '';
 
-    users.map(({ name, avatar }) => {
+    // <img class="user__avatar" src="${avatar}" alt="User Avatar">
+    // users.map(({ name, avatar }) => {
+    users.map(({ name }) => {
         listItem += `<li class="users-list__item">
-                        <img class="user__avatar" src="${avatar}" alt="User Avatar">
                         <span class="user__name">${name}</span>
                     </li>`;
     });

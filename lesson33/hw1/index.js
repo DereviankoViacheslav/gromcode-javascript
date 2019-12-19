@@ -22,8 +22,8 @@ function getDevelopers(commits, days) {
             const email = acc[id].email ? acc[id].email : commit.commit.author.email;
             const count = acc[id].count ? ++acc[id].count : 1;
 
-            // return { ...acc, [id]: { name, email, count } };
-            return { ...acc, [id]: { id, name, email, avatar, count } };
+            return { ...acc, [id]: { name, email, count } };
+            // return { ...acc, [id]: { id, name, email, avatar, count } };
         }, {});
 
     const arrUsers = Object.values(dataUsers)
