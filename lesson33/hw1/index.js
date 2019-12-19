@@ -1,7 +1,6 @@
 const inputNameOwnerElem = document.querySelector('.form__input-name-owner');
 const inputNameRepoElem = document.querySelector('.form__input-name-repo');
 const inputAmountDaysElem = document.querySelector('.form__input-amount-days');
-const inputAmountUsersElem = document.querySelector('.form__input-amount-users');
 const usersListElem = document.querySelector('.users-list');
 const showUserBtnElem = document.querySelector('.form__btn');
 
@@ -11,71 +10,53 @@ function onSearchMostActiveDevs() {
     const userId = inputNameOwnerElem.value;
     const repoId = inputNameRepoElem.value;
     const days = inputAmountDaysElem.value;
-    const amountUsers = inputAmountUsersElem.value;
-    // const days = 7;
-    // const amountUsers = 5;
-    getMostActiveDevs({ days, userId, repoId, amountUsers })
+    getMostActiveDevs({ days, userId, repoId })
         .then(users => renderUsers(users));
 };
 
+// `https://api.github.com/repos/DereviankoViacheslav/calendar-web-app/commits?per_page=100`)
+
 function getMostActiveDevs(options) {
-    const { days, userId, repoId, amountUsers } = options;
-    return fetchCommits(userId, repoId)
-        .then(commits => getDevelopers(commits, days, amountUsers));
-
+    const { days, userId, repoId } = options;
+    return fetch(`https://api.github.com/repos/${userId}/${repoId}/commits?per_page=100`)
+        .then(respons => respons.json())
+        .then(commits => getDevelopers(commits, days));
 };
 
-function getDevelopers(commits, days, amountUsers) {
-    const lastCommits = getLastCommits(commits, days);
+function getDevelopers(commits, days) {
+    const fromDate = getStartDate(days);
 
-    const listUsersId = lastCommits
-        .reduce((acc, commit) => !acc.includes(commit.author.id)
-            ? [...acc].concat(commit.author.id)
-            : acc, []);
+    const dataUsers = commits
+        .filter(commit => new Date(commit.commit.author.date) - fromDate > 0)
+        .reduce((acc, commit) => {
+            const id = commit.author.id;
+            acc[id] = acc[id] ? acc[id] : {};
+            const avatar = acc[id].avatar ? acc[id].avatar : commit.author.avatar_url;
+            const name = acc[id].name ? acc[id].name : commit.commit.author.name;
+            const email = acc[id].email ? acc[id].email : commit.commit.author.email;
+            const count = acc[id].count ? ++acc[id].count : 1;
 
-    return listUsersId
-        .map(usersId => counterCommitsOfUser({ id: usersId }, lastCommits))
-        .slice(0, amountUsers > listUsersId.length ? listUsersId.length : amountUsers);
-};
+            return { ...acc, [id]: { id, name, email, avatar, count } };
+        }, {});
 
-function counterCommitsOfUser(user, commits) {
-    commits.map(commit => {
-        if (user.id === commit.author.id) {
-            user.name = !user.name ? commit.commit.author.name : user.name;
-            user.email = !user.email ? commit.commit.author.email : user.email;
-            user.count = !user.count ? 1 : ++user.count;
-        }
-    });
+    const arrUsers = Object.values(dataUsers)
+        .sort((a, b) => b.count - a.count);
+    const commitsTopDeveloper = arrUsers[0].count;
 
-    return user;
-};
-
-function getLastCommits(commits, amountDays) {
-    const fromDate = getStartDate(amountDays);
-
-    return commits.filter(commit => new Date(commit.commit.author.date) - fromDate > 0);
+    return arrUsers.filter(({ count }) => commitsTopDeveloper === count);
 };
 
 function getStartDate(daysAgo) {
-    const currentDate = new Date();
-    const fromDate = new Date(new Date().setDate(currentDate.getDate() - daysAgo));
-
-    return fromDate;
-};
-
-function fetchCommits(userId, repoId) {
-    return fetch(`https://api.github.com/repos/${userId}/${repoId}/commits?per_page=100`)
-    // return fetch(`https://api.github.com/repos/DereviankoViacheslav/calendar-web-app/commits?per_page=100`)
-        .then(respons => respons.json());
+    const now = new Date();
+    return new Date(now.setDate(now.getDate() - daysAgo));
 };
 
 function renderUsers(users) {
     let listItem = '';
 
-    users
-    .sort((a, b) => b.count - a.count)
-    .map(({ name }) => {
+    users.map(({ name, avatar }) => {
         listItem += `<li class="users-list__item">
+                        <img class="user__avatar" src="${avatar}" alt="User Avatar">
                         <span class="user__name">${name}</span>
                     </li>`;
     });

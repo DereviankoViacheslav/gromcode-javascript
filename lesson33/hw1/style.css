@@ -1,8 +1,7 @@
-label {
-    display: block;
-}
-
 .form {
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 25px;
     padding: 10px;
 }
 
@@ -15,6 +14,29 @@ label {
     outline: none;
 }
 
-.form__input {
-    margin-right: 5px;
+.users-list {
+    margin: 0;
+    padding: 30px;
+    list-style-type: none;
+}
+
+.users-list__item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    padding: 15px;
+    border: 1px solid #000;
+    border-radius: 8px;
+    background-color: #b7b7b7fa;
+}
+
+.user__avatar {
+    height: 100px;
+    width: 100px;
+    border-radius: 8px;
+}
+
+.user__name {
+    margin-left: 25px;
+    font-size: 24px;
 }
