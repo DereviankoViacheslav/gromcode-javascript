@@ -4,7 +4,7 @@ const inputNameOwnerElem = document.querySelector('.form__input-name-owner');
 const inputNameRepoElem = document.querySelector('.form__input-name-repo');
 const inputAmountDaysElem = document.querySelector('.form__input-amount-days');
 const usersListElem = document.querySelector('.users-list');
-const showUserBtnElem = document.querySelector('.form__btn');
+const showUserBtnElem = document.querySelector('.name-form__btn');
 
 function renderList() {
     showUserBtnElem.addEventListener('click', onSearchMostActiveDevs);
@@ -15,7 +15,7 @@ function onSearchMostActiveDevs() {
     const repoId = inputNameRepoElem.value;
     // const days = inputAmountDaysElem.value;
     const days = 7;
-    
+
     getMostActiveDevs({ days, userId, repoId })
         .then(users => renderUsers(users));
 };
@@ -23,10 +23,9 @@ function onSearchMostActiveDevs() {
 function renderUsers(users) {
     let listItem = '';
 
-    // <img class="user__avatar" src="${avatar}" alt="User Avatar">
-    // users.map(({ name, avatar }) => {
-    users.map(({ name }) => {
+    users.map(({ name, avatar }) => {
         listItem += `<li class="users-list__item">
+                        <img class="user__avatar" src="${avatar}" alt="User Avatar">
                         <span class="user__name">${name}</span>
                     </li>`;
     });
