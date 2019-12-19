@@ -36,7 +36,8 @@ function getDevelopers(commits, days) {
             const email = acc[id].email ? acc[id].email : commit.commit.author.email;
             const count = acc[id].count ? ++acc[id].count : 1;
 
-            return { ...acc, [id]: { id, name, email, avatar, count } };
+            // return { ...acc, [id]: { id, name, email, avatar, count } };
+            return { ...acc, [id]: { name, email, count } };
         }, {});
 
     const arrUsers = Object.values(dataUsers)
@@ -54,9 +55,10 @@ function getStartDate(daysAgo) {
 function renderUsers(users) {
     let listItem = '';
 
-    users.map(({ name, avatar }) => {
+    users.map(({ name }) => {
+    // users.map(({ name, avatar }) => {
+        // <img class="user__avatar" src="${avatar}" alt="User Avatar">
         listItem += `<li class="users-list__item">
-                        <img class="user__avatar" src="${avatar}" alt="User Avatar">
                         <span class="user__name">${name}</span>
                     </li>`;
     });
