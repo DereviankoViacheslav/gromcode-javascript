@@ -1,10 +1,24 @@
-// import { renderList } from './renderList.js';
+const inputNameOwnerElem = document.querySelector('.form__input-name-owner');
+const inputNameRepoElem = document.querySelector('.form__input-name-repo');
+const inputAmountDaysElem = document.querySelector('.form__input-amount-days');
+const usersListElem = document.querySelector('.users-list');
+const showUserBtnElem = document.querySelector('.name-form__btn');
+
+showUserBtnElem.addEventListener('click', onSearchMostActiveDevs);
+
+function onSearchMostActiveDevs() {
+    const userId = inputNameOwnerElem.value;
+    const repoId = inputNameRepoElem.value;
+    const days = inputAmountDaysElem.value;
+
+    getMostActiveDevs({ days, userId, repoId })
+        .then(users => renderUsers(users));
+};
 
 // `https://api.github.com/repos/DereviankoViacheslav/calendar-web-app/commits?per_page=100`)
 
 function getMostActiveDevs({ days, userId, repoId }) {
     return fetch(`https://api.github.com/repos/${userId}/${repoId}/commits?per_page=100`)
-    // return fetch(`https://api.github.com/repos/DereviankoViacheslav/calendar-web-app/commits?per_page=100`)
         .then(respons => respons.json())
         .then(commits => getDevelopers(commits, days));
 };
@@ -22,8 +36,7 @@ function getDevelopers(commits, days) {
             const email = acc[id].email ? acc[id].email : commit.commit.author.email;
             const count = acc[id].count ? ++acc[id].count : 1;
 
-            return { ...acc, [id]: { name, email, count } };
-            // return { ...acc, [id]: { id, name, email, avatar, count } };
+            return { ...acc, [id]: { id, name, email, avatar, count } };
         }, {});
 
     const arrUsers = Object.values(dataUsers)
@@ -38,6 +51,16 @@ function getStartDate(daysAgo) {
     return new Date(now.setDate(now.getDate() - daysAgo));
 };
 
-// renderList();
+function renderUsers(users) {
+    let listItem = '';
+
+    users.map(({ name, avatar }) => {
+        listItem += `<li class="users-list__item">
+                        <img class="user__avatar" src="${avatar}" alt="User Avatar">
+                        <span class="user__name">${name}</span>
+                    </li>`;
+    });
+    usersListElem.innerHTML = listItem;
+};
 
 export { getMostActiveDevs };
