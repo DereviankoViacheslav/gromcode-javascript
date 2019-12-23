@@ -1,22 +1,9 @@
 const baseUrl = 'https://crudcrud.com/api/6292d9d47ada4bd4afc3cd42969fdea2/users';
 
-function addUser(userData) {
-    return fetch(baseUrl, {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json;charset=utf-8',
-        },
-        body: JSON.stringify(userData),
-    }).then(response => response.json())
-    .then(data => JSON.stringify(data));
-};
-
 const submitBtnElem = document.querySelector('.submit-button');
 const form = document.forms[0];
+const inputs = [...document.querySelectorAll('input')];
 const errorTextElem = document.querySelector('.error-text');
-const inputEmailElems = document.querySelector('#email');
-const inputNameElems = document.querySelector('#name');
-const inputPasswordElems = document.querySelector('#password');
 
 form.addEventListener('input', validateFields);
 form.addEventListener('submit', submitData);
@@ -32,19 +19,21 @@ function validateFields() {
 
 function submitData(event) {
     event.preventDefault();
-    const newUser = {
-        name: inputNameElems.value,
-        email: inputEmailElems.value,
-        password: inputPasswordElems.value,
-    };
+    const newUser = [...new FormData(form)]
+        .reduce((acc, [field, value]) => ({ ...acc, [field]: value }), {});
 
-    addUser(newUser)
+    fetch(baseUrl, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json;charset=utf-8',
+        },
+        body: JSON.stringify(newUser),
+    })
+        .then(response => response.json())
         .then(data => {
-            inputNameElems.value = '';
-            inputEmailElems.value = '';
-            inputPasswordElems.value = '';
+            inputs.map(elem => elem.value = '');
             submitBtnElem.disabled = true;
-            alert(data);
+            alert(JSON.stringify(data))
         })
         .catch(() => {
             errorTextElem.textContent = 'Failed to create user';
