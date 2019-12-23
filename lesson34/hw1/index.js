@@ -1,9 +1,3 @@
-// import { initHandlers } from './initHandlers.js';
-
-// document.addEventListener('DOMContentLoaded', () => {
-//     initHandlers();
-// });
-
 const baseUrl = 'https://crudcrud.com/api/6292d9d47ada4bd4afc3cd42969fdea2/users';
 
 function addUser(userData) {
@@ -13,7 +7,8 @@ function addUser(userData) {
             'Content-Type': 'application/json;charset=utf-8',
         },
         body: JSON.stringify(userData),
-    })
+    }).then(response => response.json())
+    .then(data => JSON.stringify(data));
 };
 
 const submitBtnElem = document.querySelector('.submit-button');
@@ -25,8 +20,6 @@ const inputPasswordElems = document.querySelector('#password');
 
 form.addEventListener('input', validateFields);
 form.addEventListener('submit', submitData);
-// function initHandlers() {
-// };
 
 function validateFields() {
     if (form.reportValidity()) {
