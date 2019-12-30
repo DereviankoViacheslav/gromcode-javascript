@@ -9,7 +9,4 @@ async function getUsersBlogs(usersList) {
     return usersData.map(user => user.blog);
 };
 
-// getUsersBlogs(['facebook', 'google', 'gaearon'])
-//     .then(result => console.log(result));
-
 export { getUsersBlogs };
