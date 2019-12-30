@@ -14,9 +14,9 @@ async function getUsersBlogs(usersList) {
     const requests = usersList
         .map(userId => fetch(`https://api.github.com/users/${userId}`)
             .then(response => response.json()));
-    return await Promise.all(requests);
-    // const usersData = await Promise.all(requests);
-    // return usersData;
+    // return await Promise.all(requests);
+    const usersData = await Promise.all(requests);
+    return usersData.map(user => user.blog);
 };
 
 getUsersBlogs(['facebook89899998', 'facebook', 'google', 'gaearon'])
